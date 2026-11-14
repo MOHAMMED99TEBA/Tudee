@@ -1,0 +1,170 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:task2_s3/screens/HomeTasks_Screen.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFFCE8E8),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF49BAF2),
+        toolbarHeight: 44,
+        title: Text(
+          'Tudee',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'cheery',
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome Ahmed',
+                    style: TextStyle(fontSize: 15, color: Colors.black87),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 190,
+                        padding: EdgeInsets.symmetric(vertical: 14),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF76C499),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                color: Colors.white24,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Icon(
+                                Icons.check_circle_outline,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              '0',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              'Done',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        width: 190,
+                        padding: EdgeInsets.symmetric(vertical: 14),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF9887F5),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                color: Colors.white24,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Icon(
+                                Icons.assignment_outlined,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              '0',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                              ),
+                            ),
+                            Text(
+                              'To-Do',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 12),
+
+            Container(
+              width: double.infinity,
+              height: 150,
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'No tasks for today!',
+                    style: TextStyle(fontSize: 12, color: Colors.black),
+                  ),
+                  SizedBox(height: 2),
+                  Text(
+                    'Tap the + button to add your first one.',
+                    style: TextStyle(fontSize: 10, color: Colors.blueGrey),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.off(() => HomeTasksScreen());
+        },
+        backgroundColor: Color(0xFF4DB8F5),
+        shape: CircleBorder(),
+        child: Icon(Icons.note_add_outlined, color: Colors.white),
+      ),
+    );
+  }
+}
