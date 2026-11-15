@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task2_s3/screens/HomeTasks_Screen.dart';
+
+import 'AddTask_Screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+
+  bool isEmpty = true;
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                               padding: EdgeInsets.all(6),
                               decoration: BoxDecoration(
                                 color: Colors.white24,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                               child: Icon(
                                 Icons.assignment_outlined,
@@ -130,7 +133,8 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 12),
 
-            Container(
+            isEmpty
+                ? Container(
               width: double.infinity,
               height: 150,
               padding: EdgeInsets.all(12),
@@ -152,6 +156,70 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
+            )
+                : Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(bottom: 12),
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF7CC69C),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'Done',
+                          style: TextStyle(color: Colors.white, fontSize: 10),
+                        ),
+                      ),
+                      SizedBox(height: 18),
+                      Text(
+                        'Organize Study Desk',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(bottom: 12),
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: Color(0xFF9B8AF5),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'TODO',
+                          style: TextStyle(color: Colors.white, fontSize: 10),
+                        ),
+                      ),
+                      SizedBox(height: 18),
+                      Text(
+                        'Learn Flutter',
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -159,7 +227,7 @@ class HomeScreen extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.off(() => HomeTasksScreen());
+          Get.off(() => AddTaskScreen());
         },
         backgroundColor: Color(0xFF4DB8F5),
         shape: CircleBorder(),
